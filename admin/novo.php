@@ -10,22 +10,56 @@ $stmt->execute();
 $categories = $stmt->fetchAll();
 ?>
 
-<form method="POST" action="inserir.php" enctype="multipart/form-data">
-    <label for="title">Título</label>
-    <input type="text" name="title" id="title">
-    <label for="category_id">Categoria</label>
-    <select name="category_id" id="category_id">
-        <?php foreach($categories as $c) { ?>}
-            <option value="<?php echo $c['id']?>"><?php echo $c['name']?></option>
-        <?php } ?>
-    </select>
-    <label for="created_at">Data de publicação</label>
-    <input type="text" name="created_at" id="created_at">
-    <label for="content">Conteúdo</label>
-    <textarea name="content" id="content"></textarea>
-    <label for="image">Imagem</label>
-    <input type="file" name="image" id="image">
-    <button type="submit">Enviar</button>
+<form method="POST" action="inserir.php" enctype="multipart/form-data" class="container col s12">
+    <div class="row">
+        <div class="input-field col s6">
+            <input name="title" id="title" type="text" class="validate" required>
+            <label for="title">Título</label>
+        </div>
+        <div class="input-field col s6">
+            <select name="category_id" id="category_id" required>
+                <option value="" disabled selected>Selecione uma categoria</option>
+                <?php foreach($categories as $c) { ?>
+                    <option value="<?php echo $c['id']?>"><?php echo $c['name']?></option>
+                <?php } ?>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s6">
+            <input type="text" class="datepicker" name="created_at" id="created_at" required>
+            <label for="created_at">Data de criação</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s12">
+            <textarea id="textarea1" class="materialize-textarea" name="content" id="content" required></textarea>
+            <label for="textarea1">Conteudo</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="file-field input-field">
+        <div class="btn">
+            <span>Adicionar Imagem</span>
+            <input type="file" name="image" id="image">
+        </div>
+        <div class="file-path-wrapper">
+            <input class="file-path validate" type="text" required>
+        </div>
+        </div>
+    </div>
+    <div class="row">
+        <button class="btn waves-effect waves-light" type="submit">Enviar
+            <i class="material-icons right">send</i>
+        </button>
+    </div>
 </form>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var selectElems = document.querySelectorAll('select');
+        var instances = M.FormSelect.init(selectElems, "");
 
-<?php require_once('../rodape.php') ?>
+        var datePickerElems = document.querySelectorAll('.datepicker');
+        var instances = M.Datepicker.init(datePickerElems, "options");
+    });
+</script>

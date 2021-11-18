@@ -1,7 +1,7 @@
 <?php
 
 require_once('../config/bootstrap.php');
-
+include_once('menu.php');
 $sql = "DELETE FROM posts WHERE id = :id";
 $stmt = $conn->prepare($sql);
 $stmt->bindParam('id', $id);
@@ -9,7 +9,11 @@ $stmt->execute();
 
 ?>
 
-<h1>Post excluído com sucesso!</h1>
-<a href="/admin/index.php">Voltar</a>
-
-<?php require_once('../rodape.php') ?>
+<div class="container">
+    <h1>Post excluído com sucesso!</h1>
+    <div class="row">
+        <a class="btn waves-effect waves-light" type="submit" href="index.php">Enviar
+            <i class="material-icons right">send</i>
+        </a>
+    </div>
+</div>

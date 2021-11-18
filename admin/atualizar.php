@@ -38,5 +38,3 @@ $post = $stmt->fetch();
     <input type="hidden" name="id" value="<?php echo $id?>">
     <button type="submit">Atualizar</button>
 </form>
-
-<?php require_once('../rodape.php') ?>

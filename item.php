@@ -13,18 +13,40 @@ $stmt->bindParam('id', $id);
 $stmt->execute();
 $post = $stmt->fetch();
 ?>
-
-<ul>
-    <li><a href="index.php">HOME</a> ></li>
-    <li><a href="index.php?categoria=<?php echo $post['category_id']?>"><?php echo $post['category_name']?></a></li>
-</ul>
-
-<img src="<?php echo $post['image']?>">
-<h2><?php echo $post['created_at'] ?> - <?php echo $post['title'] ?></h2>
-<div>
-    <?php echo $post['content'] ?>
+<div class="container">
+    <nav>
+        <div class="nav-wrapper">
+            <div class="col s12">
+            <a href="index.php" class="breadcrumb">HOME</a>
+            <a href="index.php?categoria=<?php echo $post['category_id']?>" class="breadcrumb"><?php echo $post['category_name']?></a>
+            </div>
+        </div>
+    </nav>
+    <br>
+    <main class="container">
+        <div class="row">
+            <div class="col s5">
+                <img class="materialboxed" width="100%" height="30%" src="/fiap/<?php echo $post['image']?>">
+            </div>
+            <div class="col s7">
+                <h3><?php echo $post['created_at'] ?> - <?php echo $post['title'] ?></h3>
+                <p class="flow-text"><?php echo $post['content'] ?></p>
+            </div>
+        </div>
+        <a href="javascript: history.go(-1)" class="waves-effect waves-light btn">Voltar</a>
+    </main>
 </div>
-<a href="javascript: history.go(-1)">Voltar</a>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.materialboxed');
+        var instances = M.Materialbox.init(elems, "");
+    });
+</script>
+
+
+
+
 
 
 

@@ -15,6 +15,4 @@ $stmt->execute();
 ?>
 
 <h1>Post enviado com sucesso!</h1>
-<a href="/admin/index.php">Voltar</a>
-
-<?php require_once('../rodape.php') ?>
+<a href="index.php">Voltar</a>

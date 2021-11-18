@@ -1,7 +1,7 @@
 <?php
 
 require_once('../config/bootstrap.php');
-
+include_once('menu.php');
 $sql = "SELECT id, title, content, DATE_FORMAT(created_at, '%d/%m/%Y') as created_at, `image`
         FROM posts
         WHERE id = :id";
@@ -28,7 +28,11 @@ $stmt->bindParam('id', $id);
 $stmt->execute();
 ?>
 
-<h1>Post atualizado com sucesso!</h1>
-<a href="/admin/index.php">Voltar</a>
-
-<?php require_once('../rodape.php') ?>
+<div class="container">
+    <h1>Post atualizado com sucesso!</h1>
+    <div class="row">
+        <button class="btn waves-effect waves-light" type="submit" href="index.php">Enviar
+            <i class="material-icons right">send</i>
+        </button>
+    </div>
+</div>

@@ -12,7 +12,7 @@ $stmt->execute();
 $results = $stmt->fetchAll();
 
 ?>
-<table>
+<table class="container">
     <thead>
         <tr>
             <th>Código</th>
@@ -27,11 +27,13 @@ $results = $stmt->fetchAll();
             <tr>
                 <td><?php echo $r['post_id'] ?></td>
                 <td><?php echo $r['title'] ?></td>
-                <td><a href="/admin/atualizar.php?id=<?php echo $r['post_id']?>">Editar</a></td>
-                <td><a href="/admin/excluir.php?id=<?php echo $r['post_id']?>">Excluir</a></td>
+                <td><?php echo $r['category_name'] ?></td>
+                <td>
+                    <a href="atualizar.php?id=<?php echo $r['post_id']?>"><i class="material-icons">edit</i></a>
+                    <a href="excluir.php?id=<?php echo $r['post_id']?>"><i class="material-icons">delete</i></a>
+                </td>
+                <td></td>
             </tr>
         <?php } ?>
     </tbody>
 </table>
-
-<?php require_once('../rodape.php') ?>
