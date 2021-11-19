@@ -31,8 +31,6 @@ $stmt->execute();
 <div class="container">
     <h1>Post atualizado com sucesso!</h1>
     <div class="row">
-        <button class="btn waves-effect waves-light" type="submit" href="index.php">Enviar
-            <i class="material-icons right">send</i>
-        </button>
+        <a class="btn waves-effect waves-light" type="submit" href="index.php">Concluido</a>
     </div>
 </div>

@@ -12,8 +12,6 @@ $stmt->execute();
 <div class="container">
     <h1>Post excluído com sucesso!</h1>
     <div class="row">
-        <a class="btn waves-effect waves-light" type="submit" href="index.php">Enviar
-            <i class="material-icons right">send</i>
-        </a>
+        <a class="btn waves-effect waves-light" type="submit" href="index.php">Enviar</a>
     </div>
 </div>
