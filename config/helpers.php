@@ -2,7 +2,6 @@
 
 function formatDate($date) {
     $sp = explode('/', $date);
-
     return $sp[2] . '-' . $sp[1] . '-' . $sp[0];
 }
 

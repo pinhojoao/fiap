@@ -60,6 +60,8 @@ $categories = $stmt->fetchAll();
         var instances = M.FormSelect.init(selectElems, "");
 
         var datePickerElems = document.querySelectorAll('.datepicker');
-        var instances = M.Datepicker.init(datePickerElems, "options");
+        var instances = M.Datepicker.init(datePickerElems, {
+            format: 'dd/mm/yyyy',
+        });
     });
 </script>
